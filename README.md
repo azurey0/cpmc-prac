@@ -2,4 +2,4 @@
 Gene magic!
 
 ## Usage
-Run 'gui.py'
+Run 'gui.py' in Python
