@@ -4,11 +4,8 @@ import glob
 import time
 
 def collect_files(folder):
-    #path = os.path.join(os.getcwd(), 'DATA_CPMC')
-    #print(path)
-    #print(glob.glob(path + "*.txt"))
-    #all_files = glob.glob(path + "/*.txt")
     '''
+    read Genials reports in folder, concat the reports in the folder into one dataframe
     :param folder: the folder with Genialis liquid biopsy report to upload, in '.txt' format, get from uploader()
     :return: reports in pandas dataframe
     '''
@@ -26,14 +23,13 @@ def collect_files(folder):
     df = df.where(pd.notnull(df), None)
     return df
 
-
-# FUNCTIONS CHECKS WHETHER ALL FILES FROM DS TABLE ARE PRESENTD IN MATCHED TABLE
 def uploader(replace, conn, folder):
     '''
+    FUNCTIONS CHECKS WHETHER ALL FILES FROM FILE_SOURCE TABLE ARE PRESENTD IN MATCHED TABLE (judging criteria is file_name)
     :param replace: IF YOU WISH TO REPLACE CURRRENT FILES PUT replace = True, IF YOU JUST WANT TO ADD SOME NEW FILES WITHOUT REPLACEMENT PUT replace = False
     :param conn: database connector
     :param folder: the folder with Genialis liquid biopsy report to upload, in '.txt' format
-    :return:
+    :return: report files to upload
     '''
     # getting unique filenames from the file source table
     datasource_filenames = '''
@@ -96,8 +92,8 @@ def uploader(replace, conn, folder):
         print('2. updating database...')
         if replace == True:
             # INSERT all reports with replacement
-            print('3. Starting REPLACEMENT in 10 seconds, if you want to CANCEL - stop execution')
-            time.sleep(10)
+            # print('3. Starting REPLACEMENT in 10 seconds, if you want to CANCEL - stop execution')
+            # time.sleep(10)
             print('4. executing...')
             cursor = conn.cursor()
             for i in range(0, len(files_to_upload)):

@@ -40,7 +40,7 @@ def doStuff():
             if folder_check is None: # pass the check
                 replace_status = checkbox_val()
                 try:
-                    analysis_pipeline.report_analysis(folder, replace_status)
+                    #analysis_pipeline.report_analysis(folder, replace_status) ## comment this line if you don't wish to make changes to database.
                     messagebox.showinfo('Info', 'Process completed! You can close this program now.')
                     print("Doing stuff with folder", folder, replace_status)
                 except:

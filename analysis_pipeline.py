@@ -15,6 +15,11 @@ import numpy as np
 import seaborn as sns
 
 def folder_check(folder):
+    '''
+    Check whether the user selected folder is valid
+    :param folder: user selected folder
+    :return: error message if any
+    '''
     error_msg = None
     # check if folder exists
     if os.path.isdir(folder)==False:

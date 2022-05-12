@@ -14,16 +14,32 @@ import seaborn as sns
 
 
 def string_cut_1(x):
+    '''
+    string functions
+    :param x:
+    :return:
+    '''
     loc = x.find('-')
     return x[0:loc]
 
 
 def string_cut_2(x):
+    '''
+    string functions
+    :param x:
+    :return:
+    '''
     loc = x.find('-ctdna')
     return x[0:loc]
 
 
 def calculate_sim(left, right):
+    '''
+    data processing functions for patient matching (the do_magick function)
+    :param left:
+    :param right:
+    :return:
+    '''
     left_score = pd.DataFrame(index=left.index, columns=left.index)
 
     for i in range(left.shape[0]):
@@ -47,6 +63,12 @@ def calculate_sim(left, right):
 
 
 def calc_sim_insert_index(buckets):
+    '''
+    data processing functions for patient matching (the do_magick function)
+    :param left:
+    :param right:
+    :return:
+    '''
     p_list = []
     p_id = 1
     for bucket in buckets:
@@ -80,12 +102,24 @@ def calc_sim_insert_index(buckets):
 
 
 def second_largest(list_1):
+    '''
+    data processing functions for patient matching (the do_magick function)
+    :param left:
+    :param right:
+    :return:
+    '''
     list_1 = list_1.sort_values()
     max_v = list_1[-2]
     return max_v
 
 
 def get_scores(buckets):
+    '''
+    data processing functions for patient matching (the do_magick function)
+    :param left:
+    :param right:
+    :return:
+    '''
     collect = []
     for buc in buckets:
         for ind, row in buc.iterrows():
@@ -97,6 +131,12 @@ def get_scores(buckets):
 
 
 def get_scores_transposed(buckets):
+    '''
+    data processing functions for patient matching (the do_magick function)
+    :param left:
+    :param right:
+    :return:
+    '''
     collect = []
     for buc in buckets:
         t_buc = buc.T
@@ -113,7 +153,7 @@ def do_magick(data, crc_type):
     double check matching results.
     :param data:
     :param crc_type: cancer type
-    :return:
+    :return: reports with potential matched patients information
     '''
     print(crc_type)
     # Data pre processing
@@ -291,6 +331,12 @@ def do_magick(data, crc_type):
 
 
 def patient_table_update(patients_to_update, conn):
+    '''
+    update PATIENT table
+    :param patients_to_update: reports with potential matched patient information, like the 'df_out' result above
+    :param conn: database connection
+    :return:
+    '''
     cursor = conn.cursor()
     # Clear the table
     sql1 = """
