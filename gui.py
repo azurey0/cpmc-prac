@@ -58,7 +58,7 @@ def doStuff():
 
 def checkbox_val():
     '''
-    :return: if 'replace' box is tickled.
+    :return: if 'replace' box is chosen.
     '''
     is_replace = False
     print(check_var.get())

@@ -5,7 +5,7 @@ import time
 
 def collect_files(folder):
     '''
-    read Genials reports in folder, concat the reports in the folder into one dataframe
+    read Genials reports in folder selected, concat the reports in the folder into one dataframe
     :param folder: the folder with Genialis liquid biopsy report to upload, in '.txt' format, get from uploader()
     :return: reports in pandas dataframe
     '''

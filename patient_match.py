@@ -15,7 +15,7 @@ import seaborn as sns
 
 def string_cut_1(x):
     '''
-    string functions
+    string functions 1
     :param x:
     :return:
     '''

@@ -1,7 +1,7 @@
 import re
 import pandas as pd
 
-## Amino Acid DICTIONARY, for match in format between Genials reports and COSMIC database
+##  Amino Acid DICTIONARY, for match in format between Genials reports and COSMIC database
 aa_type_dict = {'Ala': 'A', 'Gly': 'G', 'Ile': 'I', 'Leu': 'L', 'Pro': 'P', 'Val': 'V', \
                 'Phe': 'F', 'Trp': 'W', 'Tyr': 'Y', 'Asp': 'D', 'Glu': 'E', 'Arg': 'R', 'His': 'H', 'Lys': 'K', \
                 'Ser': 'S', 'Thr': 'T', 'Cys': 'C', 'Met': 'M', 'fs': '*', 'Asn': 'N', 'Gln': 'Q'}

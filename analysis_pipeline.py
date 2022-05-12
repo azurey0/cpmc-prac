@@ -18,7 +18,7 @@ def folder_check(folder):
     '''
     Check whether the user selected folder is valid
     :param folder: user selected folder
-    :return: error message if any
+    :return: error message if there's any
     '''
     error_msg = None
     # check if folder exists
