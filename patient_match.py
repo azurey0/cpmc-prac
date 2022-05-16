@@ -9,6 +9,8 @@ import re
 from tqdm import tqdm
 from sklearn.cluster import KMeans
 from sklearn.metrics.pairwise import cosine_similarity,cosine_distances
+from sklearn.utils import _typedefs
+from sklearn.neighbors import _partition_nodes
 import numpy as np
 import seaborn as sns
 

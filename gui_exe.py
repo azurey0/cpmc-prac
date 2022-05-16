@@ -18,6 +18,9 @@ from tkinter import messagebox
 from tkinter import Tk, Canvas, Entry, Text, Button, PhotoImage
 import analysis_pipeline
 
+import os
+import sys
+
 OUTPUT_PATH = Path(__file__).parent
 ASSETS_PATH = OUTPUT_PATH / Path("./assets")
 
@@ -78,6 +81,10 @@ def relative_to_assets(path: str) -> Path:
     '''
     return ASSETS_PATH / Path(path)
 
+def resource_path(relative_path):
+    """ Get absolute path to resource, works for dev and for PyInstaller """
+    base_path = getattr(sys, '_MEIPASS', os.path.dirname(os.path.abspath(__file__)))
+    return os.path.join(base_path, relative_path)
 
 window = Tk()
 window.title("Automatic Liquid Biopsy Reporting")
@@ -140,7 +147,8 @@ checkbox.place(
 Browse folder button
 '''
 button_image_1 = PhotoImage(
-    file=relative_to_assets("button_1.png"))
+    #file=relative_to_assets("button_1.png"))
+    file = resource_path("assets\\button_1.png"))
 button_1 = Button(
     image=button_image_1,
     borderwidth=0,
@@ -159,7 +167,8 @@ button_1.place(
 Upload button
 '''
 button_image_2 = PhotoImage(
-    file=relative_to_assets("button_2.png"))
+    #file=relative_to_assets("button_2.png"))
+    file = resource_path("assets\\button_2.png"))
 button_2 = Button(
     image=button_image_2,
     borderwidth=0,
@@ -187,7 +196,8 @@ canvas.create_text(
 Show selected folder path
 '''
 entry_image_1 = PhotoImage(
-    file=relative_to_assets("entry_1.png"))
+    #file=relative_to_assets("entry_1.png"))
+    file = resource_path("assets\\entry_1.png"))
 entry_bg_1 = canvas.create_image(
     506.0,
     264.5,
