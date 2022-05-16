@@ -2,6 +2,7 @@ gui.py is the original file for gui dev.
 gui_exe.py is for creating .exe.
 Follow steps from https://stackoverflow.com/a/60953781
 
+- dependencies: Install pyinstaller if you didn't yet, by: pip3 install pyinstaller.
 - create resource_path() function
 - use resource_path() for file opening:
   - for example, PhotoImage(
